@@ -1,4 +1,5 @@
-# 2.1 快速环境搭建
+2.1 快速环境搭建
+================
 
 我们提供了基于eclipse的示例工程模板,请先下载示例工程[leap-user-guid-web](leap-user-guid-web.zip),如果你比较习惯使用**maven环境**进行开发的话,可以下载这个工程[leap-user-guid-maven](leap-user-guid-maven.zip).  
 下载示例工程之后,将工程解压到你自己的目录,这里以web工程为例说明,maven工程是类似的.  
