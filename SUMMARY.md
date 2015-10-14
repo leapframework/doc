@@ -4,8 +4,6 @@
   - [快速环境搭建](getting-start/construction.md)
   - [示例工程说明](getting-start/introduce.md)
   - [自定义第一个action](getting-start/first_action.md)
-  - [简单的配置连接数据库](getting-start/connect_db.md)
-  - [第一个htpl模板](getting-start/first_htpl.md)
 * [LEAP 示例分析](chapter_1/index.md)
 * [LEAP 概况介绍](chapter_2/index.md)
 * [LEAP 使用介绍](chapter_3/index.md)

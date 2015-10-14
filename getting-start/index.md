@@ -9,7 +9,5 @@
 
 了解上述几点要求,我们现在可以开始搭建leap的示例工程环境了.  
 * [快速环境搭建](construction.md)
-* [示例工程说明](introduce.md)
+* [示例工程介绍](introduce.md)
 * [自定义第一个action](first_action.md)
-* [简单的配置连接数据库](connect_db.md)
-* [第一个htpl模板](first_htpl.md)

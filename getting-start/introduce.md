@@ -9,6 +9,7 @@ src目录下是java的包,需要注意的是resources/conf这个目录,这个目
 最后是WebContent目录  
 ![WebContent](img/introduce/WebContent.png)  
 WebContent是标准的web应用的结构,有一点比较特殊的是在WEB-INF目录下有一个叫做`views`的文件夹,这个文件夹用来存放整个web应用的视图文件,这个结构是leap web应用的标准结构.
+另外我们注意到在WebContent目录下还有一个static文件夹,这个文件夹用于存放应用的静态文件,按照J2EE的标准,静态文件在WebContent下的任意目录都是可以的,但是leap对static做了特殊的处理,我们建议,所有静态文件都放在static目录下,至于在这个目录下做了什么特殊的处理,将在HTPL模块的章节中详细介绍.
 
 * 2.1.1 配置文件  
 
@@ -148,7 +149,21 @@ leap的视图访问规则是按照url的访问路径来确定的,并且以`WebCo
   ```
   这个类上的注解很好理解,`@Table`表示这个模型类映射的数据库表,`@Column`表示指定的字段映射到数据库的字段,需要特别说明的是,`@Column`不是必须的注解,没有使用这个注解的字段,默认也会与数据库字段映射,并且遵循驼峰式转换为下划线式的转换规则,即`驼峰式(java)  ->  下划线式(数据库字段)`  
   `Model`类是leap-orm提供的基类,所有与数据库表有映射关系的模型类都要继承这个类以获得与数据库交互的能力.当然leap-orm也支持使用习惯的dao方式与数据库交互,在后续会有专门的章节说明.
-  
-  至此,我们对示例工程和使用leap开发的基本工程结构都有了一定的了解了.可以继续下一章节,开始创建我们自己的action了. 
+* 2.1.5 leap工程的入口  
+
+前面我们已经明白leap的工程是如何进行工作的了,现在我们来看看当web容器接收到请求之后,leap是如何接管请求处理的,打开`web.xml`可以看到如下配置:
+```xml
+<filter>
+	<filter-name>app-filter</filter-name>
+	<filter-class>leap.web.AppFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>app-filter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+这个配置就是leap的入口拦截器,这里拦截的路径用通配符表示全部拦截,因此所有的请求都将从这里被leap的拦截器拦截之后交由leap进行处理,当然,对于某些leap在控制路由表中找不到对应的action的请求,leap就会重新将请求交回给web容器,进入下一个拦截器或者servlet处理.
+
+至此,我们对示例工程和使用leap开发的基本工程结构都有了一定的了解了.可以继续下一章节,开始创建我们自己的action了. 
   
   [自定义第一个action](first_action.md)
