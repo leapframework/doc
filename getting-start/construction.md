@@ -1,8 +1,13 @@
 2.1 快速环境搭建
 ================
 
-我们提供了基于eclipse的示例工程模板,请先下载示例工程[leap-user-guid-web](download/leap-user-guid-web.zip),如果你比较习惯使用**maven环境**进行开发的话,可以下载这个工程[leap-user-guid-maven](download/leap-user-guid-maven.zip).  
-下载示例工程之后,将工程解压到你自己的目录,这里以web工程为例说明,maven工程是类似的.  
+我们提供了基于eclipse的示例工程模板,请先下载示例工程,如果你比较习惯使用**maven环境**进行开发的话,可以下载这个工程[leap-user-guid-maven](download/leap-user-guid-maven.zip).  
+我们提供了多种类型的示例工程,请按照自己的习惯选择下载的示例工程类型:
+* 习惯使用eclipse的Dynamic web工程,请下载:[leap-user-guid-web](download/leap-user-guid-web.zip)
+* 习惯使用普通maven工程,请下载:[leap-user-guid-maven](download/leap-user-guid-maven.zip)
+* 习惯使用maven jetty的工程,请下载:[leap-user-guid-jetty](download/leap-user-guid-jetty.zip)  
+
+下载示例工程之后,将工程解压到你自己的目录,这里以Dynamic web工程为例说明,maven工程是类似的.  
 web工程解压之后,目录结构如下图:  
 ![web目录结构](img/construction/web-filesystem.png)  
 将工程导入到eclipse的工作空间中:  
