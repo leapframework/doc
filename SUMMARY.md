@@ -1,6 +1,6 @@
 # 目录
 * [前言](README.md)
-* [你好 LEAP](getting-start/index.md)
+* [快速开始](getting-start/index.md)
   - [快速环境搭建](getting-start/construction.md)
   - [示例工程说明](getting-start/introduce.md)
   - [自定义第一个action](getting-start/first_action.md)
