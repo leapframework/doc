@@ -1,2 +1,2 @@
-# doc
-Doc of leap framework.
+# 前言
+这篇文章是LEAP框架的介绍文档.
