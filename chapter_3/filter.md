@@ -122,6 +122,8 @@ GlobalInteceptor.completeRequest
 可以看到,除了全局拦截器之外,PostController的拦截器按照PostController.preActionExecuting → PostController.postActionExecuting → PostController.completeActionExecuting顺序执行了拦截器的接口.
 
 > 通过注解配置controller拦截器的方式,与action级别的拦截器的配置方式是一致的,请参考action拦截器的配置方式.
+
+
 ### action拦截器
 action拦截器只拦截指定的action,我们先在`leap.project.inteceptor`包下创建拦截器`ActionInteceptor`,同样重写拦截器的几个重要接口,代码如下:
 ```java
