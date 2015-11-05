@@ -13,6 +13,7 @@
 * [创建Global](#new_global)
 * [创建Controller](#new_controller)
 * [创建视图](#new_view)
+* [日志配置](#add_log)
 
 ## <a id="new_project"></a>新建工程
 
@@ -134,7 +135,7 @@ public class Global extends App {
 
 }
 ```
-在这个类中,我们可以重写`initApp()`函数,这个函数将在应用初始化完成之后调用,可以做一些定制化的初始化功能(比如用户登录校验等).  
+在这个类中,我们可以重写`init()`函数,这个函数将在应用初始化完成之后调用,可以做一些定制化的初始化功能(比如用户登录校验等).  
 为了可以在这里配置应用的安全校验,我们需要在这里使用leap提供的安全配置器,在`Global`中添加一个私有属性`private SecurityConfigurator sc`,代码如下:
 ```java
 package leap.project;
@@ -146,7 +147,7 @@ public class Global extends App {
 	private SecurityConfigurator sc;
 	
 	@Override
-	protected void initApp() throws Throwable {
+	protected void init() throws Throwable {
 		
 	}
 }
@@ -204,4 +205,65 @@ public class HomeController {
 ```
 hello leap!
 ```
-至此应用开发环境搭建完成.
+至此应用开发环境搭建完成,但是现在还不能正在进行开发,我们还需要添加日志以便开发过程的调试.
+
+## <a id="add_log"></a>日志配置
+leap已经提供了日志的接口,默认是支持slf4j日志的,因此我们只要选择自己想要使用的日志框架即可.推荐使用的是logback框架.  
+在pom.xml中添加依赖:
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>${logback.version}</version>
+    <type>jar</type>
+</dependency>
+```
+添加了依赖之后,我们根据logback的官方文档,在`src/main/resources`源文件夹下添加`logback.xml`,
+```
+└　resources
+    ├　conf
+    │　　└　config.xml
+    └　logback.xml
+```
+参考示例如下:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<configuration scan="true" scanPeriod="10 seconds">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- do not add line number output , it will slow down the execution speed -->
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+  
+	<logger name="bingodrive" level="TRACE"/>
+	<logger name="leap"       level="DEBUG"/>
+ 	 
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+```
+再次启动应用,就可以看到在终端输出了日志.这里我们需要注意的是,在最后有如下的一段日志:
+```
+METHOD  PATH     ACTION                 DEFAULT VIEW
+------  ------   --------------------   ------------------------------
+*       /        HomeController.index   htpl:/index
+*       /index   HomeController.index   htpl:/index
+```
+这个就是leap打印的路由表,可以告诉我们访问哪个url会对应哪个action和哪个view.
+比如在路由表的第一行:
+```
+*       /        HomeController.index   htpl:/index
+```
+第一列`*`表示支持所有的请求类型,如`POST`,`GET`,`PUT`等等;  
+第二列`/`表示应用根路径,在这里实际上指的就是`http://localhost:8080/leap-project/`这个路径;  
+第三列`HomeController.index`表示的是这个路径处理的action就是`HomeController`类下的`index`方法;  
+第四列`htpl:/index`表示的是视图类型和位置.
+> `htpl`表示该视图是htpl模板;  
+> `/index`表示是在根目录下的`index.html`文件或`index.jsp`文件;  
+> 这里的根目录指的是`webapp/WEB-INF/views/`.
+
+
+这个路由表也可以作为应用启动成功的标志.

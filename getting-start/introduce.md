@@ -132,9 +132,9 @@ public class UserController extends ControllerBase {
 由action到view的默认规则是:
 > * 根据action的访问路径,在`WEB-INF/views`目录下寻找对应路径的视图文件.如:访问`/user/create_user`会映射到/WEB-INF/views/user/create_user.html
 > * 在对应目录下优先寻找html类型的文件,其次寻找jsp类型的文件.
-
-<h4 id="mapping-rule">mvc转换规则</h4>
-> * 对于全为小写字母的单词,转换后为原单词,如:user → user;userdelete → userdelete.
+  
+> #### <a id="mapping-rule"></a>mvc转换规则
+> * 对于全为小写字母的单词,转换后为原单词,如:user → user;userdelete → userdelete.                         
 > * 对于多个单词组成的驼峰式名称,将驼峰式转换为下划线式名称,如:createUser → create_user.
 > * 若连续两个以上的字母大写,则将全部转为小写,并不添加下划线,如:userUUID → useruuid.
 > * 若有特殊字符,则特殊字符前后均变为小写,并不添加下划线,如:create$User → create$user.
