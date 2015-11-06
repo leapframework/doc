@@ -4,7 +4,7 @@
     - [快速环境搭建](getting-start/construction.md)
     - [示例工程说明](getting-start/introduce.md)
     - [自定义第一个action](getting-start/first_action.md)
-* [WEB应用开发](chapter_2/index.md)
+* [新建WEB工程](chapter_2/index.md)
 * [MVC应用](chapter_3/index.md)
     - [路由规则](chapter_3/route_rule.md)
     - [controlle和action的使用](chapter_3/leap_controller.md)
