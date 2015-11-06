@@ -106,3 +106,16 @@ public class UserController extends ControllerBase {
 }
 ```
 可以看到测试的结果和使用`ControllerBase`的接口是一样的.
+
+### ViewData视图参数传递
+现在我们已经可以访问视图了,但是在action中,我们经常需要给`view`传递参数以便视图渲染.  
+在leap中,这个参数传递非常简单,我们使用了`leap.web.view.ViewData`作为视图的参数对象,一般我们只需要把想传递给视图的参数放到这个对象中即可,这个对象的获取方式可以以参数的方式传递给action,也可以从`result`中获取.
+举例如下:
+```java
+public String index(ViewData vd){
+	vd.put("name", "jim");
+	result().getViewData().put("age", 20);
+  return "view:/user_list.html";
+}
+```
+这里实际上`vd`和`result().getViewData()`获取的是同一个对象,最终都会将参数`name`和`age`传递给`view`.
