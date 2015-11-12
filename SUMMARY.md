@@ -24,5 +24,5 @@
     - [动态sql应用](chapter_5/dynamic_sql.md)
     - [多数据源应用](chapter_5/multiple_data_sources.md)
 * [安全模块](chapter_6/index.md)
-    - [登录校验](chapter_5/login_validate.md)
+    - [登录校验](chapter_6/login_validate.md)
     - [CSRF校验](chapter_6/csrf_validate.md)
