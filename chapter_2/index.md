@@ -139,11 +139,12 @@ public class Global extends App {
 为了可以在这里配置应用的安全校验,我们需要在这里使用leap提供的安全配置器,在`Global`中添加一个私有属性`private SecurityConfigurator sc`,代码如下:
 ```java
 package leap.project;
-
+import leap.core.annotation.Inject;
 import leap.web.App;
 import leap.web.security.SecurityConfigurator;
 
 public class Global extends App {
+  @Inject
 	private SecurityConfigurator sc;
 	
 	@Override

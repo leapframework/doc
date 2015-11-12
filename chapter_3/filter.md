@@ -48,7 +48,7 @@ public class GlobalInteceptor extends RequestInterceptorAdpater {
 修改`leap.project.Global`的`init()`方法,代码如下:
 ```java
 @Override
-protected void initApp() throws Throwable {
+protected void init() throws Throwable {
 	interceptors().add(new GlobalInteceptor());
 }
 ```
