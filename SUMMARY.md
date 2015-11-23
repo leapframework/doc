@@ -7,7 +7,7 @@
 * [新建WEB工程](chapter_2/index.md)
 * [MVC应用](chapter_3/index.md)
     - [路由规则](chapter_3/route_rule.md)
-    - [controlle和action的使用](chapter_3/leap_controller.md)
+    - [controller和action的使用](chapter_3/leap_controller.md)
     - [智能参数绑定](chapter_3/binding_params.md)
     - [拦截器](chapter_3/filter.md)
 * [模板引擎](chapter_4/index.md)
