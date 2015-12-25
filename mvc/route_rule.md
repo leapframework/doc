@@ -1,5 +1,5 @@
 # 路由规则
-leap的设计原则是遵循约定大于配置的原则的,因此leap中有许多默认的约定,其中我们最经常接触的默认约定应该就是路由规则了.
+leap的设计原则是遵循约定大于配置的原则的,因此leap中有许多默认的约定,其中我们最经常接触的默认约定就是路由规则了.
 #### 寻找controller的规则
 在`config.xml`中,我们配置了`base-package`,在`base-package`包及其子包下,leap按照如下规则确定控制器:
 > 1. 类名以`Controller`结束的类都视为控制器
@@ -21,11 +21,13 @@ leap按照如下规则确定action:
 > 3. 应用根目录的url默认映射的controller为`HomeController`
 
 按照上面的默认规则,举例如下:
+
 ```
 UserController → /user
 UserPostController → /user_post
 User$PostController → /userpost
 ```
+
 ##### action路由规则
 默认情况下,action的url映射规则如下:
 > 1. 将action名称按照[转换规则](#mapping-rule)转换成url;

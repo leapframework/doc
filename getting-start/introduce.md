@@ -65,8 +65,9 @@ META-INF文件夹下,这里有一个特殊的目录结构`services/leap/core/App
   </config>
   ```
   在这里有一个`<base-package>leap.demo</base-package>`的配置,这个配置是leap框架扫描包的根目录,即所有需要leap框架自动处理的类都必须在这个包或者其子包内.这里其他的几项`properties`配置是数据库相关的属性配置,不难理解.  
-> * `config.xml`是必须存在的,并且必须是`conf`文件夹内,不可在其他位置(也不能在conf的子目录内)    
-> * 可以在`conf`文件夹下创建子文件`config`.  
+> * `config.xml`是必须存在的,并且必须是`conf`文件夹内,不可在其他位置(也不能在conf的子目录内).    
+> * 可以在`conf`文件夹下创建子文件夹`config`.  
+> * 不配置`config.xml`虽然也能正常启动,但是作为leap的配置入口,我们建议必须配置.
 
   我们继续看`beans.xml`的配置文件:  
   ```xml
@@ -80,15 +81,17 @@ META-INF文件夹下,这里有一个特殊的目录结构`services/leap/core/App
   </beans>
   ```
 这里配置了一个name为h2的bean,这个bean的类型是`javax.sql.DataSource`,真正的实现类是`leap.core.ds.UnPooledDataSource`,`primary="true"`表示这个bean是单例的.  
-注意到这里的属性值采用了如`${h2.driverClassName}`的配置,这个配置的值我们可以在config.xml中看到,相信大家不难理解这里的含义.  
+注意到这里的属性值采用了如`${h2.driverClassName}`的配置,这里是一个占位符,这个占位符的值我们可以在config.xml中看到,相信大家不难理解这里的含义.  
 
-> * beans.xml并不是必须的  
+> * beans.xml并不是必须的.  
 > * beans.xml也和config.xml类似,允许在`conf`目录下创建子目录`beans`.
+> * 使用`${key}`这样的配置时,如果没有在配置中找到这个占位符的值,那么这个`property`的`value`就是`"${key}"`这个字符串
 
 ### 2.1.2 mvc映射规则  ###
   
 这里我们以`leap.demo.controller.UserController`为例说明leap的源代码.
 先看 [快速环境搭建](construction.md) 中看过的路由表:  
+
 ```
 METHO  PATH                ACTION                             VIEW
 -----  -----------------   --------------------------------   ------------------------------
@@ -102,7 +105,9 @@ POST   /user/edit_user     action:UserController.editUser     htpl:/user/edit_us
 *      /user               action:UserController.index        htpl:/user/index
 *      /                   action:HomeController.index        htpl:/index
 ```
+
 我们从路由表的第一行可以看到,访问路径`/user/delete_user`就会调用`UserController.deleteUser`这个action(注:**在leap中,负责处理请求的方法我们称为action**.),这个action如下:
+
 ```java
 public class UserController extends ControllerBase {
 	...
@@ -113,6 +118,7 @@ public class UserController extends ControllerBase {
 	
 }
 ```
+
 你一定很奇怪在没有任何配置和注解的情况下,leap是如何找到这个action来处理对应的请求的.  
 这实际上是leap的mvc默认约定的映射规则:
 > * 在`base-package`包下的所有以*Controller命名的类全部为控制器类.
@@ -122,18 +128,20 @@ public class UserController extends ControllerBase {
 > * 如果访问controller的根路径,默认调用controller名为index的action.
 
 接下来我们看到路由表中第二行的路由信息,以`GET`请求访问路径`/user/create_user`会调用`UserController.createUser`并返回视图`/user/create_user`
+
 ```java
 	@GET
 	public void createUser(ViewData vd){
 		
 	}
 ```
+
 可以看到action中并没有任何处理,我们已经知道路径和action的映射关系,那么action和view的映射关系又是如何确定的?
 由action到view的默认规则是:
 > * 根据action的访问路径,在`WEB-INF/views`目录下寻找对应路径的视图文件.如:访问`/user/create_user`会映射到/WEB-INF/views/user/create_user.html
 > * 在对应目录下优先寻找html类型的文件,其次寻找jsp类型的文件.
   
-> #### <a id="mapping-rule"></a>mvc转换规则
+#### <a id="mapping-rule"></a>mvc转换规则
 > * 对于全为小写字母的单词,转换后为原单词,如:user → user;userdelete → userdelete.                         
 > * 对于多个单词组成的驼峰式名称,将驼峰式转换为下划线式名称,如:createUser → create_user.
 > * 若连续两个以上的字母大写,则将全部转为小写,并不添加下划线,如:userUUID → useruuid.
@@ -145,6 +153,7 @@ public class UserController extends ControllerBase {
 leap框架包含了自己的模板引擎,我们称为htpl模板引擎,htpl是一个高效的,基于html注释的无冗余元素和属性的模板引擎.  
 前面我们已经清楚leap的mvc默认映射规则了,让我们先看看/user/index的视图是怎么样的.
 打开`WebContent/WEB-INF/views/user/index.html`文件,可以看到如下代码:  
+
   ```html
   <table border="1">
     <thead>
@@ -172,6 +181,7 @@ leap框架包含了自己的模板引擎,我们称为htpl模板引擎,htpl是一
     </tbody>
   </table>
   ```
+
   可以看到,这里对用户的列表使用了`#for`指令循环打印了用户信息,使用`#endfor`指令表示循环结束.htpl的指令语法和java极为相似,不难理解,这里细心的用户可能已经注意到`${loop.index}`这个代码了,这里`loop`对象是htpl循环中提供的特殊对象,保存了当前循环的信息,比如这里用的`loop.index`就是表示当前循环的下标.
 
 ### 2.1.4 leap-orm ###  
@@ -234,6 +244,7 @@ leap框架包含了自己的模板引擎,我们称为htpl模板引擎,htpl是一
 ### 2.1.5 leap工程的入口 ###  
 
 前面我们已经明白leap的工程是如何进行工作的了,现在我们来看看当web容器接收到请求之后,leap是如何接管请求处理的,打开`web.xml`可以看到如下配置:
+
 ```xml
 <filter>
 	<filter-name>app-filter</filter-name>
@@ -244,6 +255,7 @@ leap框架包含了自己的模板引擎,我们称为htpl模板引擎,htpl是一
 	<url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
+
 这个配置就是leap的入口拦截器,所有的请求都将从这里被leap的拦截器拦截之后交由leap进行处理,当然,对于某些leap在控制路由表中找不到对应的action的请求,leap就会重新将请求交回给web容器,进入下一个拦截器或者servlet处理.
 
 至此,我们对示例工程和使用leap开发的基本工程结构都有了一定的了解了.可以继续下一章节,开始创建我们自己的action了. 

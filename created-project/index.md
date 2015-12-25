@@ -83,6 +83,7 @@ leap-project
 leap遵循约定大于配置的原则,因此所需要的初始化配置非常少.
 #### <a id="add_dependency"></a>添加leap依赖
 在pom.xml中添加依赖:
+
 ```xml
 <dependency>
 	<groupId>org.leapframework</groupId>
@@ -91,16 +92,22 @@ leap遵循约定大于配置的原则,因此所需要的初始化配置非常少
 	<type>pom</type>
 </dependency>
 ```
+
 这是使用leap的第一步.
 依赖添加完成后,在maven依赖关系中可以看到对leap的jar包的引用(**不同版本jar包可能不一样**).
 #### <a id="add_base_package"></a>添加`base-package`目录配置
 在`resources/conf/config.xml`中添加如下配置:
+
 ```xml
 <base-package>leap.project</base-package>
 ```
+
 这个配置表示leap将会以`leap.project`为根目录,扫描这个包以及其子包下的所有类来初始化整个web应用.
+> 建议不要使用`leap`作为基础包,因为框架内部有许多包名是`leap.*`,配置leap为base-package会大大增加扫描包的数量,导致应用启动速度较慢.leap默认的base-package是app
+
 #### <a id="config_webxml"></a>修改web.xml添加框架入口
 在`web.xml`中添加如下拦截器:
+
 ```xml
 <filter>
 	<filter-name>app-filter</filter-name>
@@ -111,6 +118,7 @@ leap遵循约定大于配置的原则,因此所需要的初始化配置非常少
 	<url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
+
 这里`leap.web.AppFilter`是框架的拦截器,一般配置`url-pattern`为`/*`表示拦截所有的请求.
 
 leap工程的初始化配置完成,我们开始写应用的初始类.
@@ -144,7 +152,7 @@ import leap.web.App;
 import leap.web.security.SecurityConfigurator;
 
 public class Global extends App {
-  @Inject
+  	@Inject
 	private SecurityConfigurator sc;
 	
 	@Override
@@ -153,8 +161,7 @@ public class Global extends App {
 	}
 }
 ```
-> 这里`SecurityConfigurator`就是安全配置器接口,leap提供的默认的实现.
-
+> 这里`SecurityConfigurator`就是安全配置器接口,leap提供了默认的实现.
 
 这里的配置在后续的章节我们再详细讲解,接下来我们创建一个控制器.
 
@@ -202,15 +209,18 @@ public class HomeController {
 ```
 视图创建完成,至此我们新的工程环境已经搭建完成.
 
-讲这个工程部署到tomcat(或其他servlet容器)中,启动并访问应用根目录,即可看到:
+将这个工程部署到tomcat(或其他servlet容器)中,启动并访问应用根目录,即可看到:
+
 ```
 hello leap!
 ```
-至此应用开发环境搭建完成,但是现在还不能正在进行开发,我们还需要添加日志以便开发过程的调试.
+
+至此应用开发环境搭建完成,但是现在还不能真正进行开发,我们还需要添加日志以便开发过程的调试.
 
 ## <a id="add_log"></a>日志配置
 leap已经提供了日志的接口,默认是支持slf4j日志的,因此我们只要选择自己想要使用的日志框架即可.推荐使用的是logback框架.  
 在pom.xml中添加依赖:
+
 ```xml
 <dependency>
     <groupId>ch.qos.logback</groupId>
@@ -219,14 +229,18 @@ leap已经提供了日志的接口,默认是支持slf4j日志的,因此我们只
     <type>jar</type>
 </dependency>
 ```
+
 添加了依赖之后,我们根据logback的官方文档,在`src/main/resources`源文件夹下添加`logback.xml`,
+
 ```
 └　resources
     ├　conf
     │　　└　config.xml
     └　logback.xml
 ```
+
 参考示例如下:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
@@ -246,7 +260,9 @@ leap已经提供了日志的接口,默认是支持slf4j日志的,因此我们只
 	</root>
 </configuration>
 ```
+
 再次启动应用,就可以看到在终端输出了日志.这里我们需要注意的是,在最后有如下的一段日志:
+
 ```
 METHOD  PATH     ACTION                 DEFAULT VIEW
 ------  ------   --------------------   ------------------------------
@@ -258,6 +274,7 @@ METHOD  PATH     ACTION                 DEFAULT VIEW
 ```
 *       /        HomeController.index   htpl:/index
 ```
+
 第一列`*`表示支持所有的请求类型,如`POST`,`GET`,`PUT`等等;  
 第二列`/`表示应用根路径,在这里实际上指的就是`http://localhost:8080/leap-project/`这个路径;  
 第三列`HomeController.index`表示的是这个路径处理的action就是`HomeController`类下的`index`方法;  

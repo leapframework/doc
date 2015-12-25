@@ -25,11 +25,13 @@ public class User extends Model {
 ### 多个Model的指定数据源
 当然,对于需要多个数据源的应用,一般情况下不会只有一个Model是另一个数据源的,所以我们需要配置多个Model的数据源,单独每一个添加注解虽然可行,但却非常麻烦,这里我们可以通过配置指定类或者包下的所有Model都属于某个特定的数据源,如下:
 在config.xml中添加如下配置:
+
 ```xml
 <orm:models datasource="other">
 	<orm:package name="leap.project.other.model" />
 	<orm:class name="leap.project.model.User" />
 </orm:models>
 ```
-此时指定的包`leap.project.other.model`下所有的Model都讲会使用`other`数据源.  
+
+此时指定的包`leap.project.other.model`下所有的Model都将会使用`other`数据源.  
 指定的类`leap.project.model.User`也会使用`other`数据源.
