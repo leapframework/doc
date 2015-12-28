@@ -18,13 +18,11 @@ leap.project
           └　GlobalInteceptor.java
 ```
 
-全局拦截器有两种实现方式:
+全局拦截器的实现方式:
 
-> 1. 继承`leap.web.RequestInterceptorAdpater`;  
-> 2. 实现`leap.web.RequestInterceptor`接口.
+> 实现`leap.web.RequestInterceptor`接口.
 
-两种方式本质上是一样的(`RequestInterceptorAdpater`实现了`RequestInterceptor`接口).  
-这里我们以继承`leap.web.RequestInterceptorAdpater`为例,`GlobalInteceptor`代码如下:
+我们写一个拦截器实现类`GlobalInteceptor`,代码如下:
 
 ```java
 package leap.project.inteceptor;
@@ -35,22 +33,22 @@ import leap.web.RequestExecution;
 import leap.web.RequestInterceptorAdpater;
 import leap.web.Response;
 
-public class GlobalInteceptor extends RequestInterceptorAdpater {
+public class GlobalInteceptor implements RequestInterceptor {
 	@Override
-	public State preRequest(Request request, Response response)
+	public State preHandleRequest(Request request, Response response)
 			throws Throwable {
 		System.out.println("GlobalInteceptor.preRequest");
 		return State.CONTINUE;
 	}
 	
 	@Override
-	public State postRequest(Request request, Response response,
+	public State postHandleRequest(Request request, Response response,
 			RequestExecution execution) throws Throwable {
 		System.out.println("GlobalInteceptor.postRequest");
 		return State.CONTINUE;
 	}
 	@Override
-	public void completeRequest(Request request, Response response,
+	public void completeHandleRequest(Request request, Response response,
 			RequestExecution execution) throws Throwable {
 		System.out.println("GlobalInteceptor.completeRequest");
 	}
@@ -94,11 +92,10 @@ action拦截器分两个级别:
 
 #### controller级别拦截器
 
-controller级别拦截指仅拦截指定controller下的action,这里有三种方式配置controller级别拦截器:
+controller级别拦截指仅拦截指定controller下的action,这里有两种方式配置controller级别拦截器:
 
-> 1. controller继承`leap.web.action.ActionInterceptorAdapter`;
-> 2. controller实现`leap.web.action.ActionInterceptor`接口;
-> 3. controller添加`leap.web.annotation.InterceptedBy`注解.
+> 1. controller实现`leap.web.action.ActionInterceptor`接口;
+> 2. controller添加`leap.web.annotation.InterceptedBy`注解.
 
 在上面的三种配置方式中,1和2本质上是一样的,我们现在以1为例,在`leap.project.controller`包下创建`PostController`类,并重写拦截器的几个接口,代码如下:
 
@@ -110,26 +107,26 @@ import leap.lang.intercepting.State;
 import leap.web.action.ActionContext;
 import leap.web.action.ActionExecution;
 import leap.web.action.ActionInterceptorAdapter;
-public class PostController extends ActionInterceptorAdapter {
+public class PostController implements ActionInterceptor {
 	public void index(){
 		
 	}
 	@Override
-	public State preActionExecuting(ActionContext context, Validation validation)
+	public State preExecuteAction(ActionContext context, Validation validation)
 			throws Throwable {
 		System.out.println("PostController.preActionExecuting");
 		return State.CONTINUE;
 	}
 	
 	@Override
-	public State postActionExecuting(ActionContext context,
+	public State postExecuteAction(ActionContext context,
 			Validation validation, ActionExecution execution) throws Throwable {
 		System.out.println("PostController.postActionExecuting");
 		return State.CONTINUE;
 	}
 	
 	@Override
-	public void completeActionExecuting(ActionContext context,
+	public void completeExecuteAction(ActionContext context,
 			Validation validation, ActionExecution execution) throws Throwable {
 		System.out.println("PostController.completeActionExecuting");
 	}
@@ -169,29 +166,27 @@ import leap.lang.intercepting.State;
 import leap.web.action.ActionContext;
 import leap.web.action.ActionExecution;
 import leap.web.action.ActionInterceptorAdapter;
-
-public class ActionInteceptor extends ActionInterceptorAdapter {
+public class ActionInteceptor implements ActionInterceptor {
 	@Override
-	public State preActionExecuting(ActionContext context, Validation validation)
+	public State preExecuteAction(ActionContext context, Validation validation)
 			throws Throwable {
 		System.out.println("ActionInteceptor.preActionExecuting");
 		return State.CONTINUE;
 	}
 	
 	@Override
-	public State postActionExecuting(ActionContext context,
+	public State postExecuteAction(ActionContext context,
 			Validation validation, ActionExecution execution) throws Throwable {
 		System.out.println("ActionInteceptor.postActionExecuting");
 		return State.CONTINUE;
 	}
 	
 	@Override
-	public void completeActionExecuting(ActionContext context,
+	public void completeExecuteAction(ActionContext context,
 			Validation validation, ActionExecution execution) throws Throwable {
 		System.out.println("ActionInteceptor.completeActionExecuting");
 	}
 }
-
 ```
 
 修改`UserController`的`list()`action,添加注解,代码如下:
