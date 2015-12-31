@@ -87,7 +87,7 @@ leap遵循约定大于配置的原则,因此所需要的初始化配置非常少
 ```xml
 <dependency>
 	<groupId>org.leapframework</groupId>
-	<artifactId>leap-fw</artifactId>
+	<artifactId>leap</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<type>pom</type>
 </dependency>
