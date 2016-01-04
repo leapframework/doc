@@ -13,7 +13,7 @@
             "weibo": null
         }
     },
-    "output": null,
+    "output": "I:/developer/workspace-mars/workspace-leap/leap-official-website/src/main/webapp/doc",
     "pdf": {
         "fontSize": 12,
         "footerTemplate": null,
@@ -27,7 +27,7 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins": ["disqus"],
+    "plugins": [],
     "pluginsConfig": {
         "disqus": {
             "shortName": "introducetogitbook"
