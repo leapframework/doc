@@ -4,6 +4,7 @@
     - [快速环境搭建](getting-start/construction.md)
     - [示例工程说明](getting-start/introduce.md)
     - [自定义第一个action](getting-start/first_action.md)
+* [leap的maven库](maven/index.md)
 * [新建WEB工程](created-project/index.md)
 * [控制反转和依赖注入](leap-context/index.md)
 * [应用初始化](app-init/index.md)
