@@ -27,11 +27,12 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins": [],
+    "plugins" : [
+        "splitter",
+        "toggle-chapters",
+        "sectionx"
+    ],
     "pluginsConfig": {
-        "disqus": {
-            "shortName": "introducetogitbook"
-        }
     },
     "title": "Sample GitBook",
     "variables": {}
