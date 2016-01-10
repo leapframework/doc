@@ -1,6 +1,6 @@
 # leap的maven资源库
 
-leap强烈推荐使用maven进行依赖管理,但是目前leap还没有发布到maven的中心库,但是leap建立了自己的maven库,我们可以通过maven配置leap的资源库来获取leap的jar包.
+leap强烈推荐使用maven进行依赖管理,目前leap建立了的maven库,暂时没有发布到中心库,我们可以通过maven配置leap的资源库来获取leap的jar包.
 
 ## 在全局配置leap的maven资源库(推荐)
 
