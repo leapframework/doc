@@ -65,7 +65,7 @@ leap-project
 </config>
 ```
 > **注**:  
-> 这里leap有自己的XML文档结构定义(xsd)文件,在`leap-core-0.1.0-SNAPSHOT.jar`包下的`leap.core`包内,有一个`conf.xsd`文件,将这个文件导入IDE中即可实现配置文件的自动完成功能.
+> 这里leap有自己的XML文档结构定义(xsd)文件,在`leap-core-0.1.0b.jar`包下的`leap.core`包内,有一个`conf.xsd`文件,将这个文件导入IDE中即可实现配置文件的自动完成功能.
 
 继续在`webapp`目录下创建文件夹`static`,在`WEB-INF`目录下创建`views`文件夹
 ```
@@ -88,7 +88,7 @@ leap遵循约定大于配置的原则,因此所需要的初始化配置非常少
 <dependency>
 	<groupId>org.leapframework</groupId>
 	<artifactId>leap</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0b</version>
 	<type>pom</type>
 </dependency>
 ```

@@ -103,7 +103,7 @@ linux : ~/.m2/settings.xml
 		</repository>
 	</repositories>
 	<properties>
-		<leap.version>0.1.0-SNAPSHOT</leap.version>
+		<leap.version>0.1.0b</leap.version>
 	</properties>
 	
 	<dependencies>
