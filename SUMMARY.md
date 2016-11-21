@@ -2,4 +2,5 @@
 
 * [前言](README.md)
 * [介绍](introduce.md)
+* [快速开始](quickstart.md)
 
