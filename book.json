@@ -3,7 +3,7 @@
     "description": "This is leap framework's doc",
     "extension": null,
     "generator": "site",
-    "isbn": null,
+    "isbn": "null",
     "links": {
         "sharing": {
             "all": null,
@@ -13,7 +13,6 @@
             "weibo": null
         }
     },
-    "output": "I:/developer/workspace-mars/workspace-leap/leap-official-website/src/main/webapp/doc",
     "pdf": {
         "fontSize": 12,
         "footerTemplate": null,
