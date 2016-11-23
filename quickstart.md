@@ -73,3 +73,23 @@
 </config>
 ```
 
+现在我们的配置已经初始化好了，注意，这里的`base-package`表示leap扫描的顶级包名，需要按照自己实际定义的包名配置。
+
+## 创建控制器和全局对象
+
+我们先创建一个顶级包，由于前面我们配置了`base-package`为`demo`，所以这里我们也创建一个`demo`的顶级包，然后在`demo`包下创建`Global.java`类，类的内容如下：
+
+```java
+package demo;
+
+import leap.web.App;
+
+public class Global extends App {
+    @Override
+    protected void init() throws Throwable {
+        super.init();
+    }
+}
+```
+
+> **注意：**这里的类名必须为`Global`并且必须是在顶级包下（`base-package`所指定的包），不能是其子包。
