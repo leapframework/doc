@@ -58,3 +58,18 @@
 
 ## 初始化配置
 
+现在我们开始初始化我们一些必须的配置。
+
+在`src/main/resources`目录下创建一个`conf`文件夹，这是leap指定的配置文件目录。
+
+接着在`conf`目录下创建`config.xml`文件，这个是leap默认的配置文件。
+
+内容如下：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.leapframework.org/schema/config"
+xmlns:orm="http://www.leapframework.org/schema/orm/config">
+    
+</config>
+```
