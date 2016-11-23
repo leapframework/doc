@@ -27,3 +27,17 @@ conf
 
 </beans>
 ```
+
+## bean对象配置
+
+bean对象的示例如下：
+
+```xml
+<bean type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource">
+    <property name="driverClassName" value="com.mysql.Driver" />
+    <property name="jdbcUrl" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" /></bean>
+```
+
+这里可以使用占位符的方式配置bean的属性，占位符的名称就是property的key。
