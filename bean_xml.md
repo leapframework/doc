@@ -79,3 +79,10 @@ public class BeanService {
 
 type表示bean的类型，一般是一个接口，class表示的是这个bean的具体实现类，一般情况下，我们配置type为接口，class为接口的实现类，如果没有配置type的话，会自动将type设置为和class一样的类型。
 
+另外，bean中的property也可以设置成依赖其他bean的方式，如：
+
+```xml
+<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false">
+    <property name="service" ref-id="beanservice"></property>
+</bean>
+```
