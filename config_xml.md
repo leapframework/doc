@@ -16,3 +16,6 @@ conf
 ```
 
 在上面这个目录结构下，`config1.xml`、`config2.xml`、`config.xml`三个文件都会被作为config配置读取，config3.xml则不会读取。
+
+## property配置
+
