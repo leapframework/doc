@@ -54,3 +54,4 @@ config配置文件的根元素是`config`，leap也包含了自己的xsd文件�
 |property2|property2|
 |property3|property3|
 |prop.property4|property4|
+
