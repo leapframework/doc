@@ -160,5 +160,13 @@ public class HomeController {
 
 ## 启动测试
 
-到这里我们全部的配置就完成了，接下来只要把应用部署到tomcat即可，访问`http://localhost:8080/demo`（这里可以（换成你实际的部署路径）：
+到这里我们全部的配置就完成了，接下来只要把应用部署到tomcat即可，访问`http://localhost:8080/demo?name=leap`（这里可以（换成你实际的部署路径），结果页面打印了：
+
+```
+hello leap!
+```
+
+这里的leap是参数`name`指定的。
+
+最终整个工程的目录结构如下：
 
