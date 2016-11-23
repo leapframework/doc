@@ -10,3 +10,7 @@ leap的配置一共分三类：
 * bean配置
 * sql配置
 
+config配置主要用于配置应用的系统参数和自定义的property变量；
+bean配置主要用于配置应用的bean对象；
+sql配置主要用于配置应用需要使用的sql语句。
+
