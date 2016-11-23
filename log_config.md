@@ -48,3 +48,5 @@ leap中内置了简单的日志模块，只支持打印到控制台，因此一�
     </root>
 </configuration>
 ```
+
+这样即可，具体的配置和使用方法，可以查询[logback官网](http://logback.qos.ch/)
