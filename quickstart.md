@@ -34,3 +34,21 @@
     </repository>
 </repositories>
 ```
+
+添加完成之后就可以使用maven配置leap的依赖了。
+
+## 添加leap的依赖
+
+添加如下依赖：
+
+```xml
+<dependency>
+    <groupId>org.leapframework</groupId>
+    <artifactId>leap</artifactId>
+    <version>${leap.version}</version>
+    <type>pom</type>
+</dependency>
+```
+
+这里可以自行决定使用leap的哪个版本。
+
