@@ -120,3 +120,39 @@ public class HomeController {
 
 ## 创建应用根页面
 
+现在我们可以创建项目的根页面了，在`webapp/WEB-INF`目录下创建`views`文件夹，并在`views`文件夹下创建`index.html`文件：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>leap</title>
+</head>
+<body>
+    hello ${name}!
+</body>
+</html>
+```
+
+## 配置web.xml
+
+最后，我们需要配置leap接管所有的http请求，在`WEB-INF`目录的web.xml(如果没有请自行创建)中，配置leap的拦截器:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+version="3.0">
+    <display-name>leap demo</display-name>
+    <filter>
+        <filter-name>app-filter</filter-name>
+        <filter-class>leap.web.AppFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>app-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> 
+</web-app>
+```
