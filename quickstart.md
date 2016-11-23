@@ -93,3 +93,21 @@ public class Global extends App {
 ```
 
 > **注意：**这里的类名必须为`Global`并且必须是在顶级包下（`base-package`所指定的包），不能是其子包。
+
+现在我们再在`demo`包下创建一个子包`demo.controller`，用来放控制器的类。
+
+在这个包下我们创建一个`HomeController`类：
+
+```java
+package demo.controller;
+
+import leap.web.view.ViewData;
+
+public class HomeController {
+    public void index(ViewData vd, String name){
+        vd.put("name", name);
+    }
+}
+```
+
+> **说明：**leap并没有对controller所在的包做限制，只要是在`base-package`下的类即可，leap判断controller的标准是类名以`Controller`为后缀的非抽象类，因此我们不需要做其他特殊的配置。
