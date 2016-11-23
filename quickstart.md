@@ -170,3 +170,47 @@ hello leap!
 
 最终整个工程的目录结构如下：
 
+![完整的目录结构](/assets/demo-web3.png)
+
+pom.xml如下：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>leap.guid</groupId>
+    <artifactId>demo-web</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <repositories>
+        <!-- leap快照资源库 -->
+        <repository>
+            <id>leap-snapshots</id>
+            <url>https://raw.githubusercontent.com/leapframework/repo/master/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>leap-releases</id>
+            <url>https://raw.githubusercontent.com/leapframework/repo/master/releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>org.leapframework</groupId>
+            <artifactId>leap</artifactId>
+            <version>0.4.0b-SNAPSHOT</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies></project>
+```
