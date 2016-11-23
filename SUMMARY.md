@@ -4,4 +4,7 @@
 * [介绍](introduce.md)
 * [快速开始](quickstart.md)
 * [配置说明](config.md)
+    - [config配置](config_xml.md)
+    - [bean配置](bean_xml.md)
+    - [sql配置](sql_xml.md)
 
