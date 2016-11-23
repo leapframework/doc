@@ -8,4 +8,5 @@
     - [config配置](config_xml.md)
     - [bean配置](bean_xml.md)
     - [sql配置](sql_xml.md)
+    - [覆盖配置](override.md)
 
