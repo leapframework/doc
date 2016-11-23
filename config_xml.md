@@ -29,6 +29,28 @@ config配置文件的根元素是`config`，leap也包含了自己的xsd文件�
 
 ```
 
+在`config`元素下我们可以配置property属性和系统属性。
+
 ## property配置
 
-除了leap的一些系统配置外，我们可以自定义属性变量，即property。
+除了leap的一些系统配置外，我们可以自定义属性变量，即property，示例如下：
+
+```
+<property name="property1">property1</property>
+<property name="property2" value="property2"></property>
+<properties>
+    <property name="property3">property3</property>
+</properties>
+<properties prefix="prop">
+    <property name="property4">property4</property>
+</properties>
+```
+
+上述配置最终可以得到如下几个属性变量：
+
+|key|value|
+|----|----|
+|property1|property1|
+|property2|property2|
+|property3|property3|
+|prop.property4|property4|
