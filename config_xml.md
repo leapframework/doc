@@ -19,3 +19,4 @@ conf
 
 ## property配置
 
+config配置的xml
