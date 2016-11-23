@@ -101,4 +101,3 @@ leap提供了比较多的系统配置，除了我们前面用过的`base-package
 ```xml
 <default-locale>zh_CN</default-locale>
 ```
-
