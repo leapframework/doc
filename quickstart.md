@@ -142,9 +142,8 @@ public class HomeController {
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-version="3.0">
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
     <display-name>leap demo</display-name>
     <filter>
         <filter-name>app-filter</filter-name>
@@ -156,3 +155,8 @@ version="3.0">
     </filter-mapping> 
 </web-app>
 ```
+
+## 启动测试
+
+到这里我们全部的配置就完成了，接下来只要把应用部署到tomcat即可，访问`http://localhost:8080/demo`（这里可以（换成你实际的部署路径）：
+
