@@ -17,3 +17,13 @@ conf
 
 这里`bean1.xml`,`bean2.xml`,`beans.xml`会被扫描并读取bean配置，`bean3.xml`不会被扫描。
 
+## bean配置文件
+
+一个空的bean配置文件如下:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.leapframework.org/schema/beans">
+
+</beans>
+```
