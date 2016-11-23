@@ -8,6 +8,12 @@
 
 ![工程结构](/assets/demo-web1.png)
 
+如果你创建的工程中没有`webapp/WEB-INF`的话，请自行创建这两个目录，并在pom.xml中修改打包方式为war:
+
+```xml
+<packaging>war</packaging>
+```
+
 ## 配置leap的maven资源库
 
 打开pom.xml，添加如下配置：
