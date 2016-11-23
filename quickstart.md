@@ -68,8 +68,7 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://www.leapframework.org/schema/config"
-xmlns:orm="http://www.leapframework.org/schema/orm/config">
+<config xmlns="http://www.leapframework.org/schema/config" xmlns:orm="http://www.leapframework.org/schema/orm/config">
     
 </config>
 ```
