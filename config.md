@@ -6,6 +6,7 @@ leap提供了许多默认规则，使得我们可以使用极少的配置就能�
 
 leap的配置一共分三类：
 
-* property配置
+* config配置
 * bean配置
 * sql配置
+
