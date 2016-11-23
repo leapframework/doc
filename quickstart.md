@@ -111,3 +111,6 @@ public class HomeController {
 ```
 
 > **说明：**leap并没有对controller所在的包做限制，只要是在`base-package`下的类即可，leap判断controller的标准是类名以`Controller`为后缀的非抽象类，因此我们不需要做其他特殊的配置。
+
+## 创建应用根页面
+
