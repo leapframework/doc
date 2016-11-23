@@ -43,7 +43,7 @@ leap中内置了简单的日志模块，只支持打印到控制台，因此一�
             <pattern>%d{HH:mm:ss.SSS} [%thread] %level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <root level="WARN">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>
