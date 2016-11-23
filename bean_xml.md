@@ -50,7 +50,8 @@ bean对象的示例如下：
     <constructor-arg name="service">
         <bean class="demo.bean.BeanService"/>
     </constructor-arg>
-    <constructor-arg name="name" value="beanname"/></bean>
+    <constructor-arg name="name" value="beanname"/>
+</bean>
 ```
 
 这里的`lazy-init=false`表示这个bean不是懒加载的，leap中默认所有的bean都是懒加载的，只要到需要的时候才初始化，可以通过这个配置在启动后立即初始化。
