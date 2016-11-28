@@ -136,4 +136,4 @@ public class MyArgumentResolverProvider implement ArgumentResolverProvider{
 }
 ```
 
-这个参数解析器提供器会返回一个参数解析器`leap.web.action.ArgumentResolver`，示例中我们使用的是λ表达式做了简单的时间，当然也可以自己写一个实现类并在这里返回该实现类的对象。
+这个参数解析器提供器会返回一个参数解析器`leap.web.action.ArgumentResolver`，示例中我们使用的是λ表达式做了简单的实现，当然也可以自己写一个实现类并在这里返回该实现类的对象。
