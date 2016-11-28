@@ -31,14 +31,14 @@ property1=override-property1
 假设我们在配置文件`conf/beans/bean.xml`中有如下配置：
 
 ```xml
-<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false" primary=true>
+<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false" primary="true">
 </bean>
 ```
 
 在`conf/beans.xml`中有如下配置：
 
 ```xml
-<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false" primary=true override=true>
+<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false" primary="true" override=true>
     <property name="service" ref-id="beanservice"></property>
 </bean>
 ```
