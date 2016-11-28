@@ -131,7 +131,10 @@ public interface ArgumentResolverProvider {
 @Bean
 public class MyArgumentResolverProvider implement ArgumentResolverProvider{
     ArgumentResolver tryGetArgumentResolver(RouteBase route, Action action, Argument argument){
-        return (context,arg) -> context.getRequest().getParameter(arg.getName());
+        if(argument.getName().equals("name")){
+			return (context,arg) -> context.getRequest().getParameter(arg.getName());
+		}
+		return null;
     }
 }
 ```
