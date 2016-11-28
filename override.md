@@ -32,6 +32,13 @@ property1=override-property1
 
 ```xml
 <bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false">
+</bean>
+```
+
+在`conf/beans.xml`中有如下配置：
+
+```xml
+<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false">
     <property name="service" ref-id="beanservice"></property>
 </bean>
 ```
