@@ -12,3 +12,4 @@
 * [MVC](mvc.md)
     * [路由映射](route.md)
     * [参数绑定](param_bind.md)
+    * [自定义参数解析器](param_resolver.md)
