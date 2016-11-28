@@ -111,5 +111,4 @@ params:
 public void userParams(ParamsModel pm, @PathVariable("paramName") String paramName)
 ```
 
-
 ## 自定义参数解析器
