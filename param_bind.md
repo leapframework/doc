@@ -113,3 +113,27 @@ public void userParams(ParamsModel pm, @PathVariable("paramName") String paramNa
 
 ## 自定义参数解析器
 
+leap已经内置了足够强大的参数解析器，不过有些时候我们也需要定制自己的参数解析器。
+
+leap在启动的时候，会解析每个Action的参数，并分析参数确定参数解析器，因此我们需要在启动的时候判断参数是否需要由我们的参数解析器来解析，这个过程需要实现`leap.web.action.ArgumentResolverProvider`接口：
+
+```java
+public interface ArgumentResolverProvider {
+    ArgumentResolver tryGetArgumentResolver(RouteBase route, Action action, Argument argument);
+}
+```
+
+只要自己实现这个接口并将实现类配置为bean（可以通过xml配置，也可以直接使用`@Bean`注解）即可。
+
+如：
+
+```java
+@Bean
+public class MyArgumentResolverProvider implement ArgumentResolverProvider{
+    ArgumentResolver tryGetArgumentResolver(RouteBase route, Action action, Argument argument){
+        return (context,arg) -> context.getRequest().getParameter(arg.getName());
+    }
+}
+```
+
+这个参数解析器提供器会返回一个参数解析器`leap.web.action.ArgumentResolver`，示例中我们使用的是λ表达式做了简单的时间，当然也可以自己写一个实现类并在这里返回该实现类的对象。
