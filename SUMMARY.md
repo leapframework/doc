@@ -10,4 +10,7 @@
     * [sql配置](sql_xml.md)
     * [覆盖配置](override.md)
 * [MVC](mvc.md)
-
+    * [路由映射](route.md)
+    * [参数绑定](param_bind.md)
+    * [视图映射](view_mapping.md)
+    * [静态资源映射](assets_mapping.md)
