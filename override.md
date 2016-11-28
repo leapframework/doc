@@ -29,3 +29,9 @@ property1=override-property1
 ## bean配置覆盖
 
 假设我们在配置文件`conf/beans/bean.xml`中有如下配置：
+
+```xml
+<bean type="demo.bean.BeanService" class="demo.bean.BeanService" lazy-init="false">
+    <property name="service" ref-id="beanservice"></property>
+</bean>
+```
