@@ -49,5 +49,9 @@ public class HomeController{
 leap启动完成之后，一般会打印如下路由表(如果没有打印，请检查日志级别或者是否有配置slf4j):
 
 ```
-
+METHOD  PATH                     ACTION                 DEFAULT VIEW
+------  ----------------------   --------------------   ------------------------------
+*       /user_controller         UserController.index   (none)
+*       /user_controller/list    UserController.list    (none)
+*       /user_controller/index   UserController.index   (none)
 ```
