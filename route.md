@@ -60,8 +60,8 @@ METHOD  PATH                     ACTION                     DEFAULT VIEW
 
 这里我们主要看一下`PATH`到`ACTION`的映射规则：
 
-* 把类名中的Controller的后缀去掉，然后将驼峰式命名转为下划线命名：`UserModelController->user_model`
-* 把方法的名字从驼峰式转成下划线命名风格：`listUser->list_user`
-* Controller的路径加action的路径即是action的唯一访问uri:`UserModelController.listUser->/user_model/list_user`
+* 把类名中的Controller的后缀去掉，然后将驼峰式命名转为下划线命名：`UserModelController → user_model`
+* 把方法的名字从驼峰式转成下划线命名风格：`listUser → list_user`
+* Controller的路径加action的路径即是action的唯一访问uri:`UserModelController.listUser → /user_model/list_user`
 
 这个就是leap MVC的路由规则。
