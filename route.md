@@ -46,12 +46,20 @@ public class HomeController{
 
 ## 路由表
 
-leap启动完成之后，一般会打印如下路由表(如果没有打印，请检查日志级别或者是否有配置slf4j):
+leap启动完成之后，一般会打印类似如下路由表(如果没有打印，请检查日志级别或者是否有配置slf4j):
 
 ```
-METHOD  PATH                     ACTION                 DEFAULT VIEW
-------  ----------------------   --------------------   ------------------------------
-*       /user_controller         UserController.index   (none)
-*       /user_controller/list    UserController.list    (none)
-*       /user_controller/index   UserController.index   (none)
+METHOD  PATH                     ACTION                     DEFAULT VIEW
+------  --------------------- ----------------------------- ------------------------------
+*       /user_model           UserModelController.index     (none)
+*       /user_model/list_user UserModelController.listUser  (none)
+*       /user_model/index     UserModelController.index     (none)
 ```
+
+第一个`METHOD`表示的是请求方法如`POST`，`GET`等，`*`表示接受所有方法，第二个`PATH`表示的是请求的URI，`ACTION`表示请求处理的Action，最后一个`DEFAULT VIEW`表示默认的返回视图页面。
+
+这里我们主要看一下`PATH`到`ACTION`的映射规则：
+
+* 把类名中的Controller的后缀去掉，然后将驼峰式命名转为下划线命名：`UserModelController->user_model`
+* 把方法的名字从驼峰式转成下划线命名风格：`listUser->list_user`
+* Controller的路径加action的路径即是action的唯一访问uri:`UserModelController.listUser->/user_model/list_user`
