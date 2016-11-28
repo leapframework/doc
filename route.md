@@ -44,3 +44,10 @@ public class HomeController{
 
 这里`index`方法是一个Action，而`user`方法则不是。
 
+## 路由表
+
+leap启动完成之后，一般会打印如下路由表(如果没有打印，请检查日志级别或者是否有配置slf4j):
+
+```
+
+```
