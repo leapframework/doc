@@ -76,11 +76,11 @@ public void userParams(ParamsModel pm){
 
 > 对于首层复合参数可以不指定其属性对应的参数路径，但是一旦有一个参数指定了参数路径,则这个复合参数的所有属性都必须指定参数路径。
 
-> 即是如果指定了`pm.pm1.param1`,那么对应的`param1`也必须指定参数名为`pm.param1`,否则`param1`不会赋值到`pm.param1`。
+> 即是如果指定了`pm.pm1.param1`,那么对应的`param1`也必须指定参数名为`pm.param1`，否则`param1`不会赋值到`pm.param1`。
 
 ## 路径参数的设置和绑定
 
-所谓**路径参数**,即是url路径中的参数,我们在`UserController.userParams()`这个action上添加`@Path`注解并添加一个参数：
+所谓**路径参数**，即是url路径中的参数，我们在`UserController.userParams()`这个action上添加`@Path`注解并添加一个参数：
 
 ```java
 @Path("user_params/{paramName}")
