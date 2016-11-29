@@ -2,8 +2,10 @@
 
 现在数据库创建和数据源配置已经完成,我们的应用可以直接连接数据库了,现在我们将开始使用leap-orm来操作数据库.
 leap-orm支持使用ActiveRecord模式.ActiveRecord是由Rails提出的一种ORM模式,在单表的数据操作中优势非常明显.
-同时leap也支持使用传统的dao模式的数据库操作方式,弥补了ActiveRecord模式在多表查询中的劣势.
+同时leap也支持使用传统的dao模式的数据库操作方式,弥补了ActiveRecord模式在多表查询中的劣势。
+
 ### 数据库表和对象模型的映射
+
 在进行数据库的增删改查之前,我们需要先创建应用与数据库表映射的模型,在`leap-project`中新建一个包`leap.project.model`,并在该包下创建对应的两个java类,如下:
 
 ```
