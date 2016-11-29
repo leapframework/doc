@@ -5,6 +5,7 @@ leap默认是连接一个数据库,并在一个数据库内操作,但是有些�
 ### 单个Model的指定数据源
 
 在本章第一节的时候,我们已经知道如何在`beans.xml`中配置bean数据源,现在我们可以多配置一个数据源:
+
 ```xml
 <bean name="other" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true">
 	<property name="driverClassName" value="${jdbcDriver}"></property>
@@ -13,6 +14,7 @@ leap默认是连接一个数据库,并在一个数据库内操作,但是有些�
 	<property name="password" value="${jdbcPassword}"></property>
 </bean>
 ```
+
 这样我们就配置了两个数据源了,一个是`default`,另一个是`other`.  
 默认情况下,我们使用的数据源都是`default`,如果某个特定的Model是另外一个数据源的Model,此时我们可以在这个Model上添加注解:
 
