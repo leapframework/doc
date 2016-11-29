@@ -1,9 +1,11 @@
 # sql配置
+
 我们已经了解ActiveRecord的一些基本用法了,但是ActiveRecord的优势在于单表查询和操作,联表查询目前不能直接通过ActiveRecord进行,leap-orm提供了sql配置的方式进行联表查询.
 
 ### sql配置和使用
 
 在`conf`目录下添加`sqls.xml`,也可以添加`sqls`目录,并在目录下添加任意名称的'.xml'文件:
+
 ```
 src/main/resources
       └　conf
@@ -14,11 +16,11 @@ src/main/resources
           ├　config.xml
           └　sqls.xml
 ```
-这里我们创建了`sqls.xml`用来保存配置的sql,同时为了预防未来sql配置比较多,在`sqls`目录下创建了`user.xml`和`post.xml`,按照模块划分sql配置.
 
-> leap扫描sql的时候,会同时扫描`sqls.xml`和`sqls`目录下的所有`.xml`文件
+这里我们创建了`sqls.xml`用来保存配置的sql，同时为了预防未来sql配置比较多，在`sqls`目录下创建了`user.xml`和`post.xml`，按照模块划分sql配置。
 
 现在我们先看看`sqls.xml`的内容:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sqls xmlns="http://www.leapframework.org/schema/sqls">
@@ -36,20 +38,24 @@ src/main/resources
 	</command>
 </sqls>
 ```
+
 `sqls.xml`配置的根节点是`sqls`标签,这个标签下每一个sql都是一个单独的`command`标签,`command`标签的`key`属性是这个sql的唯一标示,不能包含空格.
 
-现在我们在`UserController`下添加一个action:
+现在我们在`UserModelController`下添加一个action:
+
 ```java
 public List<User> userPost(){
 	return User.<User>query("user-post-list")
 			.orderBy("name").list();
 }
 ```
+
 现在我们可以测试请求了:
+
 ```
 http请求:
 url:
-   http://localhost:8080/leap/user_controller/user_post
+   /user_model/user_post
 
 返回结果:
 [
