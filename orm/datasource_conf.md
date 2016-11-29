@@ -62,7 +62,7 @@ src/main/resources
 现在我们配置好数据库的连接配置了,回到`beans.xml`,添加如下配置:
 
 ```xml
-<bean name="default" type="javax.sql.DataSource" class="leap.core.ds.UnPooledDataSource" primary="true">
+<bean name="default" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true">
     	<property name="driverClassName" value="${jdbcDriver}"></property>
     	<property name="jdbcUrl" value="${jdbcUrl}"></property>
     	<property name="username" value="${jdbcUsername}"></property>
