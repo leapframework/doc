@@ -3,9 +3,10 @@
 leap默认是连接一个数据库,并在一个数据库内操作,但是有些时候,我们的应用会同时连接多个数据库,并在不同的数据库中操作.
 
 ### 单个Model的指定数据源
+
 在本章第一节的时候,我们已经知道如何在`beans.xml`中配置bean数据源,现在我们可以多配置一个数据源:
 ```xml
-<bean name="other" type="javax.sql.DataSource" class="leap.core.ds.UnPooledDataSource" primary="true">
+<bean name="other" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true">
 	<property name="driverClassName" value="${jdbcDriver}"></property>
 	<property name="jdbcUrl" value="${jdbcUrl}"></property>
 	<property name="username" value="${jdbcUsername}"></property>
