@@ -33,7 +33,38 @@ leap-orm支持使用ActiveRecord模式。ActiveRecord是由Rails提出的一种O
 
 对应的数据库创建sql:
 
-```sqlCREATE DATABASE `leap`;USE `leap`;DROP TABLE IF EXISTS `leap_post`;CREATE TABLE `leap_post` (  `id` varchar(36) NOT NULL,  `name` varchar(50) NOT NULL,  `descript` varchar(50) NOT NULL,  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;DROP TABLE IF EXISTS `leap_user`;CREATE TABLE `leap_user` (  `id` varchar(36) NOT NULL,  `name` varchar(50) NOT NULL,  `age` int(3) NOT NULL,  `login_id` varchar(50) NOT NULL,  `password` varchar(50) NOT NULL,  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;DROP TABLE IF EXISTS `leap_user_post`;CREATE TABLE `leap_user_post` (  `user_id` varchar(36) NOT NULL,  `post_id` varchar(36) NOT NULL,  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  PRIMARY KEY (`user_id`,`post_id`),  KEY `post_id` (`post_id`),  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `leap_user` (`id`),  CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `leap_post` (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;```
+```sql
+CREATE DATABASE `leap`;
+USE `leap`;
+DROP TABLE IF EXISTS `leap_post`;
+CREATE TABLE `leap_post` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `descript` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `leap_user`;
+CREATE TABLE `leap_user` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `age` int(3) NOT NULL,
+  `login_id` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `leap_user_post`;
+CREATE TABLE `leap_user_post` (
+  `user_id` varchar(36) NOT NULL,
+  `post_id` varchar(36) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`post_id`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `leap_user` (`id`),
+  CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `leap_post` (`id`))
+ ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
 ### 数据库表和对象模型的映射
 
