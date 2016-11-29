@@ -13,7 +13,7 @@
     * [路由映射](route.md)
     * [参数绑定](param_bind.md)
 * [ORM](orm.md)
-    * [数据库连接池配置](db_pool.md)
+    * [数据源配置](db_pool.md)
     * [关系对象](model.md)
 * [API开发](api.md)
     * [API配置](api_config.md)
