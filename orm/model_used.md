@@ -430,27 +430,3 @@ cq.count();//查询数量
 ```
 
 除了上述例子,还有许多接口,可以查询api文档.
-
-现在我们按照同样的方式,`在PostController`中添加如下action:
-
-```java
-public Post create(String name, String descript){
-	Post post = new Post();
-	post.setName(name);
-	post.setDescript(descript);
-	post.create();
-	return post;
-}
-```
-
-在`UserController`中添加如下action:
-
-```java
-public boolean addUserPost(String userId, String postId){
-	UserPost up = new UserPost();
-	up.setUserId(userId);
-	up.setPostId(postId);
-	up.create();
-	return true;
-}
-```
