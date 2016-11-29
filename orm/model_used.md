@@ -6,20 +6,8 @@ leap-orm支持使用ActiveRecord模式.ActiveRecord是由Rails提出的一种ORM
 
 ### 数据库表和对象模型的映射
 
-在进行数据库的增删改查之前,我们需要先创建应用与数据库表映射的模型,在`leap-project`中新建一个包`leap.project.model`,并在该包下创建对应的两个java类,如下:
+在进行数据库的增删改查之前,我们需要先创建应用与数据库表映射的模型，假设我们有`User`和`Post`两个类。这两个类都必须继承`leap.orm.model.Model`类,这个类提供了所有ActiveRecord模式的所有数据操作接口。
 
-```
-src/main/java
-    └　leap.project
-            ├　controller
-            ├　inteceptor
-            ├　param
-            └　model
-                ├　User.java
-                └　Post.java
-```
-
-这两个类都必须继承`leap.orm.model.Model`类,这个类提供了所有ActiveRecord模式的所有数据操作接口.  
 为了保证映射关系,`User.java`和`Post.java`需要相应的属性和数据库表字段对应,`User.java`和`Post.java`的源代码如下:
 
 User.java:
