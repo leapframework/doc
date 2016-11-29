@@ -14,7 +14,7 @@
     * [参数绑定](param_bind.md)
 * [ORM](orm.md)
     * [数据源配置](orm/datasource_conf.md)
-    * [Model应用](orm/model_used.md)
+    * [模型对象](orm/model_used.md)
     * [dao对象和事务控制](orm/dao_and_transaction.md)
     * [多数据源应用](orm/multiple_data_sources.md)
     * [ORM接口说明](orm/interface.md)
