@@ -34,8 +34,8 @@ public class User extends Model {
 
 ```xml
 <orm:models datasource="other">
-	<orm:package name="leap.project.other.model" />
-	<orm:class name="leap.project.model.User" />
+    <orm:package name="leap.project.other.model" />
+    <orm:class name="leap.project.model.User" />
 </orm:models>
 ```
 
