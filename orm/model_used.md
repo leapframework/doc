@@ -454,5 +454,3 @@ public boolean addUserPost(String userId, String postId){
 	return true;
 }
 ```
-
-启动应用,调用这两个接口创建一些测试数据.以便后续使用.
