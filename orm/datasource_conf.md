@@ -63,14 +63,18 @@ src/main/resources
 
 ```xml
 <bean name="default" type="javax.sql.DataSource" class="leap.db.cp.PooledDataSource" primary="true">
-    	<property name="driverClassName" value="${jdbcDriver}"></property>
-    	<property name="jdbcUrl" value="${jdbcUrl}"></property>
-    	<property name="username" value="${jdbcUsername}"></property>
-    	<property name="password" value="${jdbcPassword}"></property>
+    <property name="driverClassName" value="${jdbcDriver}"></property>
+    <property name="jdbcUrl" value="${jdbcUrl}"></property>
+    <property name="username" value="${jdbcUsername}"></property>
+    <property name="password" value="${jdbcPassword}"></property>
+    <property name="maxWait" value="30000"></property>
+    <property name="maxActive" value="50"></property>
 </bean>
 ```
 
-这里使用的数据源对象是leap提供的无连接池数据源对象,当然在实际应用中我们可以使用任何我们想要使用的数据源对象,比如连接池等.
+这里使用的数据源对象是leap提供的连接池数据源对象，当然在实际应用中我们可以使用任何我们想要使用的数据源对象。
+
+> leap内部实现了数据源的连接池，这个连接池能支持绝大部分的数据库连接参数和调优参数，并且不需要外部依赖，是leap推荐使用的数据源对象。
 
 到这里数据源配置就完成了.
 
