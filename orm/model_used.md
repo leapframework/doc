@@ -276,7 +276,7 @@ updated_at
 
 ### Model对象的使用
 现在我们已经创建好实体和映射关系了,接下来让我们看看如何使用leap的ActiveRecord.
-我们先在`UserController`中添加一个action:
+我们先在`UserModelController`中添加一个action:
 
 ```java
 public User create(String name,Integer age, String loginId, String password){
@@ -299,8 +299,8 @@ public User create(String name,Integer age, String loginId, String password){
 
 ```
 http请求:
-url:
-  http://localhost:8080/leap/user_controller/create
+uri:
+  /user_model/create
 params:
   name:张三
   age:20
@@ -334,7 +334,7 @@ user.delete();//删除记录
 user.save();//根据user的id是否存在判断是更新还是插入记录
 ```
 
-除了上面基本的操作之外,leap还提供了强大的记录查询功能,现在我们先在`UserController`中添加另一个action:
+除了上面基本的操作之外,leap还提供了强大的记录查询功能,现在我们先在`UserModelController`中添加另一个action:
 
 ```java
 public List<User> query(String name, Integer age, String loginId){
@@ -358,8 +358,8 @@ public List<User> query(String name, Integer age, String loginId){
 
 ```
 http请求:
-url:
-  http://localhost:8080/leap/user_controller/query
+uri:
+  /user_model/query
 params:
 
 返回结果:
