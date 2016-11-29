@@ -3,7 +3,9 @@
 在使用leap-orm之前,我们需要先进行一些简单的配置,配置数据库的连接和数据源对象.数据源对象的配置有两种方式,一种是配置bean对象,另一种是通过配置默认属性名生成数据源的对象.
 
 我们仍旧以MVC应用中所使用的[示例工程](download/leap-project.zip)为例分析.
+
 ### 配置bean对象
+
 首先我们需要一个配置bean对象的配置文件,在`conf`目录下创建一个`beans.xml`配置文件,如下:
 
 ```
@@ -38,7 +40,7 @@ src/main/resources
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.leapframework.org/schema/config">
-	<base-package>leap.project</base-package>
+	<base-package>demo</base-package>
 	<properties>
 	
 	</properties>
