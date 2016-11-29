@@ -77,4 +77,24 @@ SELECT * FROM User WHERE 1=1  {? AND name=:name;nullable:true}
 
 ## 动态表达式
 
+leap还支持使用类似java的语法实现动态表达式，如：
 
+```sql
+select * from User where @if(id != null and name == null) id = :id @elseif(name != null) name=:name @else age=:age @endif
+```
+
+上面的sql中，`@if`、`@elseif`、`@else`的规则和java的语法相识，只是表达式中的与(`&&`)使用`and`，而或(`||`)使用`or`而已。
+
+另外，表达式也支持使用sql片段功能：
+
+如：
+
+```xml
+<command key="dynamic.sql.if">
+    select * from User where @include(fragment.sql)
+</command>
+
+<fragment key="fragment.sql">
+    @if(id != null) id = :id @elseif(name != null) name=:name @else age=:age @endif
+</fragment>
+```
