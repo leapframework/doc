@@ -94,6 +94,7 @@ src/main/resources
 > * `db.`前缀表示这是数据库的配置,但是实际的属性名必须是`leap.db.cp.PooledDataSource`所包含的属性,否则该配置是不能生效的。
 
 ### 创建数据库
+
 数据源配置完成之后,我们现在要创建数据库表,作为示例,我们创建两个实体表和一个中间表就可以了,模型图如下:
 
 ```
@@ -161,5 +162,3 @@ CREATE TABLE `leap_user_post` (
   CONSTRAINT `post_id` FOREIGN KEY (`post_id`) REFERENCES `leap_post` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-
-这里提供上述sql的文本下载:[创建数据库的sql](download/leap_sql.sql)
