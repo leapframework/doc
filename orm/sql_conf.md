@@ -102,10 +102,13 @@ url:
 在[模型对象](model_used.md)的章节里,我们已经知道可以通过`?`来设置sql的参数占位符,对应的参数按照顺序传入即可,这是一种比较简单的方式,并不能满足所有的参数传递的需求,leap-orm提供了另一种参数传递的方式.
 
 在sql中,可以使用`:paramName`做为参数占位符.传入参数的时候,按照`paramName:paramValue`的方式传入即可.比如有如下的sql:
+
 ```sql
 SELECT *　FROM leap_user WHERE name = :userName
 ```
+
 调用传参的时候可以有两种方式:
+
 ```java
 //方法一
 User.query(sqlKey).param("userName", "张三").list();
@@ -121,6 +124,7 @@ User.query(sqlKey).params(params).list();
 ```
 
 当然,实际上对于如此简单的sql,我们也可以不写在sql配置文件里,而直接使用查询:
+
 ```java
 User.query("SELECT *　FROM leap_user WHERE name = :userName").param("userName", "张三").list();
 ```
