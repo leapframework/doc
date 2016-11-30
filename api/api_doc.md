@@ -34,3 +34,5 @@ http://{host}:{}/{}
 这个时候`paths`为空，表示没有任何接口，我们可以打开swagger ui的[官方示例页面](http://petstore.swagger.io/)，并把leap自动生成swagger的url传入示例应用，可以看到如下界面：
 
 ![自动生成的api文档](/assets/swagger.json.png)
+
+这个时候还没有接口，所以文档是空的。
