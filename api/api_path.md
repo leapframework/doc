@@ -43,3 +43,5 @@ GET     /demo-api/api1/path5     Api1Controller.path5                           
 ```
 
 这里Controller注解的uri是相对于api的`base-path`的uri。并且Action的uri是相对于Controller的uri。
+
+> **注意：**按照`JAX-RS`的标准，我们必须在方法上使用注解指定http请求的方法，没有注解指定的方法不会被解析成Action
