@@ -11,7 +11,7 @@ GET    /demo-api/swagger.json SwaggerProcessor$$Lambda$93/331422133.handle (none
 在浏览器中访问这个url，可以得到如下json:
 
 ```
-http://{host}:{}/{}
+http://{host}:{port}/{context}/{base-path}/swagger.json
 ```
 
 ```javascript
