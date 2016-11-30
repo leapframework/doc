@@ -14,7 +14,7 @@ api模块的版本号一般跟随leap主版本号。
 
 ## 配置API
 
-**leap中对api的配置统一放在`conf/apis.xml`和`conf/apis/*.xml`中。**api的配置文件结构如下：
+**leap中对api的配置统一放在`conf/apis.xml`和`conf/apis/*.xml`中。**一个空的api的配置文件结构如下：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
