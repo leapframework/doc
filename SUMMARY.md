@@ -42,6 +42,7 @@
     * [sql配置](orm/sql_conf.md)
     * [动态sql应用](orm/dynamic_sql.md)
 * [API开发](api/api.md)
+    * [名词概念](api/concept.md)
     * [API配置](api/api_config.md)
     * [API路径规则](api/api_path.md)
     * [API参数](api/api_param.md)
