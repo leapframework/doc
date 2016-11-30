@@ -24,3 +24,19 @@ public class UserController extends ApiController {
     }
 }
 ```
+
+> **注意：**所有的API控制器都必须继承或间接继承`ApiController`
+
+这里的`UserModel`类声明如下：
+
+```java
+public class UserModel extends Model {
+    private String id;
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+}
+```
