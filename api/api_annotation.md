@@ -49,3 +49,26 @@ GET    /demo-api/user/all     UserController.getAllUsers                  /demo-
 上面的例子使用的是`@GET`指定http请求方法，实际上对于其他的请求方法注解（`@POST`，`@DELETE`，`@PATCH`等）用法也是一样的。
 
 > **注意：**按照`JAX-RS`的规定，Action的http请求方法是必须指定的，因此每一个Action都必须有至少一个请求方法注解，没有请求方法注解的函数是不会被解析为Action的。
+
+## 路径表达式
+
+在`JAX-RS`的规范中，定义了一些特殊的路径表达式，可以作为模板匹配URL。
+
+如：
+
+```java
+@GET("/user/{id}")
+public ApiResponse<List<UserModel>> getAllUsers(){
+    return ApiResponse.of(UserModel.all());
+}
+```
+
+表示匹配所有`/user/*`的uri，并且将`*`作为路径参数，如：
+
+```
+GET /user/abc
+GET /user/def
+```
+
+上面两个路径都会被这个Action处理，并且得到的路径参数id分别为`abc`和`def`。
+
