@@ -46,5 +46,5 @@
     * [API配置](api/api_config.md)
     * [API路径规则](api/api_path.md)
     * [API参数](api/api_param.md)
-    * [ApiController和ModelController<T>](api/apicontroller_modelcontroller.md)
+    * [API开发](api/development.md)
     * [API文档生成](api/api_doc.md)
