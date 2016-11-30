@@ -21,7 +21,6 @@ api模块的版本号一般跟随leap主版本号。
 <apis xmlns="http://www.leapframework.org/schema/web/apis">
 
 </apis>
-
 ```
 
 leap的api是模块化的，以包为基础进行扫描，并且支持指定特定的URI，一个标准的api配置如下：
