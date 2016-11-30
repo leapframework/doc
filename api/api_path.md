@@ -42,4 +42,4 @@ DELETE  /demo-api/api1           Api1Controller.path3                           
 GET     /demo-api/api1/path5     Api1Controller.path5                           /demo-api/api1/path5
 ```
 
-这里Controller注解的uri是相对于api的`base-path`的uri。并且Action的uri是相对于Controller的uri
+这里Controller注解的uri是相对于api的`base-path`的uri。并且Action的uri是相对于Controller的uri。
