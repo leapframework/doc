@@ -35,4 +35,4 @@ http://{host}:{}/{}
 
 ![自动生成的api文档](/assets/swagger.json.png)
 
-这个时候还没有接口，所以文档是空的。
+这个时候还没有接口，所以文档是空的，在[API开发](development.md)章节，我们将会看到，随着api开发，这里的文档逐渐生成的过程。
