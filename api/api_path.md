@@ -29,3 +29,17 @@ public class Api1Controller extends ApiController {
     }
 }
 ```
+
+生成的路由表如下：
+
+```
+METHOD  PATH                     ACTION                                         DEFAULT VIEW
+------  ----------------------   --------------------------------------------   ------------------------------
+POST    /demo-api/api1           Api1Controller.path2                           /demo-api/api1
+PATCH   /demo-api/api1           Api1Controller.path4                           /demo-api/api1
+GET     /demo-api/api1           Api1Controller.path1                           /demo-api/api1
+DELETE  /demo-api/api1           Api1Controller.path3                           /demo-api/api1
+GET     /demo-api/api1/path5     Api1Controller.path5                           /demo-api/api1/path5
+
+```
+
