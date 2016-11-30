@@ -12,7 +12,7 @@
 * [MVC](mvn/mvc.md)
     * [路由映射](mvc/route.md)
     * [参数绑定](mvc/param_bind.md)
-* [ORM](orm.md)
+* [ORM](orm/orm.md)
     * [数据源配置](orm/datasource_conf.md)
     * [模型对象](orm/model_used.md)
     * [dao对象和事务控制](orm/dao_and_transaction.md)
