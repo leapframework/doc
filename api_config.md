@@ -26,5 +26,8 @@ api模块的版本号一般跟随leap主版本号。
 leap的api是模块化的，以包为基础进行扫描，并且支持指定特定的URI，一个标准的api配置如下：
 
 ```xml
-
+<api name="demo-api" base-path="/demo-api" base-package="demo.api">
+</api>
 ```
+
+这里`name`是给api定义的名字，一个api实际上是一组
