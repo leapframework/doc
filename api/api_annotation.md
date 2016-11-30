@@ -48,4 +48,4 @@ GET    /demo-api/user/all     UserController.getAllUsers                  /demo-
 
 上面的例子使用的是`@GET`指定http请求方法，实际上对于其他的请求方法注解（`@POST`，`@DELETE`，`@PATCH`等）用法也是一样的。
 
-> **注意：**按照`JAX-RS`的固定，Action的http请求方法是必须指定的，因此每一个Action都必须有至少一个请求方法注解，没有请求方法注解的函数是不会被解析为Action的。
+> **注意：**按照`JAX-RS`的规定，Action的http请求方法是必须指定的，因此每一个Action都必须有至少一个请求方法注解，没有请求方法注解的函数是不会被解析为Action的。
