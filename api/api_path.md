@@ -41,3 +41,5 @@ GET     /demo-api/api1           Api1Controller.path1                           
 DELETE  /demo-api/api1           Api1Controller.path3                           /demo-api/api1
 GET     /demo-api/api1/path5     Api1Controller.path5                           /demo-api/api1/path5
 ```
+
+这里所有注解的uri都是相对于api的`base-path`的uri。
