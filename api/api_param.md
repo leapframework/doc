@@ -12,3 +12,84 @@ public ApiResponse<List<UserModel>> getAllUser(QueryOptions options){
     return ApiResponse.of(UserModel.all());
 }
 ```
+
+```javascript
+/user: {
+get: {
+description: "",
+operationId: "getAllUser",
+parameters: [
+{
+name: "page_size",
+description: "",
+in: "query",
+type: "integer",
+format: "int32"
+},
+{
+name: "page",
+description: "",
+in: "query",
+type: "integer",
+format: "int32"
+},
+{
+name: "limit",
+description: "",
+in: "query",
+type: "integer",
+format: "int32"
+},
+{
+name: "offset",
+description: "",
+in: "query",
+type: "integer",
+format: "int32"
+},
+{
+name: "total",
+description: "",
+in: "query",
+type: "boolean"
+},
+{
+name: "orderby",
+description: "",
+in: "query",
+type: "string"
+},
+{
+name: "filters",
+description: "",
+in: "query",
+type: "string"
+},
+{
+name: "select",
+description: "",
+in: "query",
+type: "string"
+},
+{
+name: "expand",
+description: "",
+in: "query",
+type: "string"
+}
+],
+responses: {
+200: {
+summary: "Success",
+description: "",
+schema: {
+type: "array",
+items: {
+$ref: "#/definitions/UserModel"
+}
+}
+}
+}
+}
+}
+```
