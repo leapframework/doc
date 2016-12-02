@@ -9,6 +9,6 @@ leap的参数绑定本身非常智能，api开发模块还另外提供了一些�
 ```java
 @GET
 public ApiResponse<List<UserModel>> getAllUser(QueryOptions options){
-       return ApiResponse.of(UserModel.all());
+    return ApiResponse.of(UserModel.all());
 }
 ```
