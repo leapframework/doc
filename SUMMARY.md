@@ -9,7 +9,7 @@
     * [bean配置](conf/bean_xml.md)
     * [sql配置](conf/sql_xml.md)
     * [覆盖配置](conf/override.md)
-* [MVC](mvn/mvc.md)
+* [MVC](mvc/mvc.md)
     * [路由映射](mvc/route.md)
     * [参数绑定](mvc/param_bind.md)
 * [ORM](orm/orm.md)
@@ -50,3 +50,4 @@
         * [API注解](api/api_annotation.md)
         * [API参数](api/api_param.md)
         * [API返回值](api/api_response.md)
+        * [ModelController&lt;T&gt;](api/modelcontroller.md)
