@@ -30,79 +30,31 @@ public class UserController extends ModelController<UserModel> {
 
 ```java
 public class UserModel extends Model {
+    @Id
     private String id;
     private String name;
     private String createdAt;
     @Relational
     private List<PetModel> pets;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public List<PetModel> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<PetModel> pets) {
-        this.pets = pets;
-    }
+    // 省略getter和setter
 }
 
 public class PetModel extends Model {
+    @Id
     private String id;
     private String name;
     @ManyToOne(target = UserModel.class)
     private String userId;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    
+    // 省略getter和setter
 }
 
 ```
 
 这里宠物和用户是多对一的关系。
+
+### 记录查询
 
 我们给这个控制器增加一个查询接口：
 
@@ -331,3 +283,51 @@ GET /classes/7h72GggUMsn?expand=pet(id,name)
 >
 > 这里是声明了pet和用户是多对一的关系，而在用户模型中声明了一个pet的属性列表，并且注解了该属性是一个关系属性(通过`@Relational`)声明。
 
+### 记录修改
+
+我们先声明一个修改用户的Action：
+
+```java
+@PATCH("/{id}")
+public ApiResponse updateUser(String id, Partial<UserModel> partial){
+    return updatePartial(id,partial);
+}
+```
+
+这里的参数`Partial`我们已经提过了，可以用来接收json格式的请求体。
+
+增量更新我们使用从`ModelController`继承的`updatePartial(id,partial)`方法即可，会自动增量更新`partial`中包含的字段。
+
+> **注意：** `ModelController`并没有提供全量更新的接口，因为全量更新相对比较简单，不需要单独提供接口。
+
+### 删除记录
+
+我们先声明一个删除接口：
+
+```java
+@DELETE("/{id}")
+public ApiResponse deleteUser(String id, DeleteOptions options){
+    return delete(id,options);
+}
+```
+
+这里的`DeleteOptions`不是一个必传参数，这个参数提供了一个级联删除的选项。
+
+比如用户和宠物的关系，如果有外键约束的话，删除用户之前必须先删除用户的宠物，通过从`ModelController`继承过来的`delete(id,options)`就可以自动找出关联关系并删除了。
+
+> **注意：** 这里提供的级联删除只针对一级联动的删除，也就是说，如果还有另一个模型和宠物建立了外键关系，这个级联删除删除用户的宠物的时候，是不会自动删除关联宠物的模型的，此时可能导致删除失败。
+
+### 新增记录
+
+我们先声明一个添加记录的Action：
+
+```java
+@POST
+public ApiResponse<UserModel> createUser(Partial<UserModel> partial){
+    return create(partial);
+}
+```
+
+前面我们提到，增量更新的时候使用的`Partial`，实际上也能在创建的时候使用，将这个对象传给继承的接口`create(partial)`即可完成对象创建。
+
+> **注意：** 这里的`create(Object obj)`并不是只接收`Partial`参数，也可以接收`Map`或其他类型的对象，方法会自动从对象中解析属性并设置到要创建的记录中。
