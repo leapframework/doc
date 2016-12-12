@@ -51,4 +51,9 @@
         * [API参数](api/api_param.md)
         * [API返回值](api/api_response.md)
         * [ModelController&lt;T&gt;](api/modelcontroller.md)
+* [HTPL 模版引擎](htpl/README.md)
+    * [Expression 表达式](htpl/expression.md)
+    * [Directive 指令](htpl/directive.md)
+    * [Attribute 属性](htpl/attribute.md)
+    * [与 JSP 混合使用](htpl/jsp.md)
 
