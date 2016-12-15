@@ -56,4 +56,9 @@
     * [Directive 指令](htpl/directive.md)
     * [Attribute 属性](htpl/attribute.md)
     * [与 JSP 混合使用](htpl/jsp.md)
+* [安全功能](security/index.md)
+    - [登录校验](security/login_validate.md)
+    - [CSRF校验](security/csrf_validate.md)
+    - [XSS攻击防御](security/xss_defense.md)
+    - [CORS支持](security/cors_support.md)
 
