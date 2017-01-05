@@ -253,7 +253,7 @@ created_at
 updated_at
 ```
 
-其中`created_at`字段是我们定义的`createdAt`字段的映射,`updated_at`字段就是leap自动创建的了，这两个字段分别对应模型的`createdAt`和`updatedAt`，当然，实际上`created_at`如果没有在模型中定义，也会自动创建。 
+其中`created_at`字段是我们定义的`createdAt`字段的映射,`updated_at`字段就是leap自动创建的了，这个字段对应模型的`updatedAt`属性，当然，实际上`created_at`如果没有在模型中定义，也会自动创建。 
 
 当然有时候某些模型我们并不希望leap自动给我们添加这两个属性,那么可以采取如下两种方式来关闭leap的属性自动生成:
 
