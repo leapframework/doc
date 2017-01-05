@@ -238,24 +238,7 @@ public class UserPost extends Model {
 
 #### Model属性自动填充
 
-细心的你可能已经注意到,在我们创建的Model类对应的数据库表中,有两个字段:
-
-```
-created_at
-updated_at
-```
-
-其中`created_at`字段是我们定义的`createdAt`字段的映射,那么`updated_at`字段是怎么来的呢?  
-
-实际上,这两个字段都是leap orm默认生成的字段,当一个非抽象类继承了Model类时,如果没有注解该类不是数据库实体(通过`@NonEntity`可以表示该类不是数据库实体),那么leap会检查这个类是否有`createdAt`和`updatedAt`字段,如果没有,则自动添加这两个属性,这两个属性分别表示数据库记录的创建时间和最后更新时间.
-
-当然有时候我们并不希望leap自动给我们添加这两个属性,那么可以采取如下两种方式来关闭leap的属性自动生成:
-
-* **`@AutoGenerateColumns`注解**
-
-如果某个Model的子类不希望自动生成`createdAt`和`updatedAt`字段,可以在这个类上添加注解`@AutoGenerateColumns(false)`,这种方式只针对单独某个类不需要生成的,如果全局情况下不希望生成这两个字段,可以使用配置的方式.
-
-* **`orm.autoGeneateModelFields`配置**
+在我们创建模型时，常用的有两个字段`created_at`和`updated_at`，分别表示创建时间和修改时间，对于这两个常见的字段，leap提供了便捷的自动创建字段功能，让我们可以不在模型中定义也能在数据库中自动创建，这个功能默认是关闭的，可以通过如下配置打开.
 
 在`config.xml`中添加如下配置:
 
@@ -263,18 +246,33 @@ updated_at
 <property name="orm.autoGeneateModelFields">false</property>
 ```
 
-此时全局范围内所有的Model子类都不再自动生成`createdAt`和`updatedAt`字段.
+这样一来,在我们创建的Model类对应的数据库表中,就会有两个字段:
+
+```
+created_at
+updated_at
+```
+
+其中`created_at`字段是我们定义的`createdAt`字段的映射,`updated_at`字段就是leap自动创建的了，这两个字段分别对应模型的`createdAt`和`updatedAt`，当然，实际上`created_at`如果没有在模型中定义，也会自动创建。 
+
+当然有时候某些模型我们并不希望leap自动给我们添加这两个属性,那么可以采取如下两种方式来关闭leap的属性自动生成:
+
+* **`@AutoGenerateColumns`注解**
+
+如果某个Model的子类不希望自动生成`createdAt`和`updatedAt`字段,可以在这个类上添加注解`@AutoGenerateColumns(false)`,这种方式只针对单独某个类不需要生成的,如果全局情况下不希望生成这两个字段,可以使用配置的方式.
 
 > ***注意:***  
 > 1. 配置了全局不自动生成字段后,即使对单独某个类注解了`@AutoGenerateColumns(true)`,也不会自动生成,此时建议自己在类中显式声明这两个属性.  
 > 2. 如果在应用启动之前,数据库的映射的物理表已经创建好了,并且该物理表没有这两个字段,那么也不会自动生成.
 
 ##### <a id="orm_mapping_rule"></a>ORM默认映射规则
+
 > 1. 对于全小写的属性名,默认映射属性名和数据库字段名一致;
 > 2. 对于驼峰式命名的属性名,默认将属性名转化为下划线式,再与相同的数据库字段名一致.  
 > 注意:属性名强烈建议不要使用特殊字符.
 
 ### Model对象的使用
+
 现在我们已经创建好实体和映射关系了,接下来让我们看看如何使用leap的ActiveRecord.
 我们先在`UserModelController`中添加一个action:
 
