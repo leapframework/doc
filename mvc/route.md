@@ -4,7 +4,7 @@
 
 ## Controller
 
-Controller是控制器，leap有一下两种方式指定控制器：
+Controller是控制器，leap有以下两种方式指定控制器：
 
 * `base-package`下的所有以Controller结尾的类都会被当成控制器
 * `base-package`下所有加了`@Controller`注解的类都会被当成控制器
