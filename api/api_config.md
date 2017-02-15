@@ -18,7 +18,7 @@ api模块的版本号一般跟随leap主版本号。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<apis xmlns="http://www.leapframework.org/schema/web/apis">
+<apis xmlns="http://www.leapframework.org/schema/web/apis/apis">
 
 </apis>
 ```
