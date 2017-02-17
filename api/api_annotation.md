@@ -22,7 +22,8 @@ leap的API开发是按照`JAX-RS`标准实现的，注解的使用方法基本�
 ```
 
 ```java
-@Path("/user")public class UserController extends ApiController {
+@Path("/user")
+public class UserController extends ApiController {
     // 使用@GET和@Path指定action的访问uri
     @GET
     @Path("/all")
