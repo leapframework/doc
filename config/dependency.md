@@ -8,12 +8,12 @@
 <dependency>
     <groupId>org.leapframework</groupId>
     <artifactId>leap</artifactId>
-    <version>0.6.2b</version>
+    <version>0.6.4b</version>
     <type>pom</type>
 </dependency>
 ```
 
-> 0.6.2b 是撰写本文档时 Leap 的最新稳定版本，当前最新版本请参考[概述](/README.md)。
+> 0.6.4b 是撰写本文档时 Leap 的最新稳定版本，当前最新版本请参考[概述](/README.md)。
 
 ## 可选依赖
 

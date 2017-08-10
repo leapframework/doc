@@ -57,7 +57,7 @@ myproject
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <leap.version>0.6.2b</leap.version>
+        <leap.version>0.6.4b</leap.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.0.13</logback.version>
     </properties>
