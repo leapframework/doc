@@ -1,0 +1,21 @@
+{% extends template.self %}
+
+{% block body %}
+{{ super() }}
+{% endblock %}
+
+{% block page %}
+{{ page.content|safe }}
+<div class="ex-page-foot">
+    <div class="ex-page-jump">
+        {% if not page.disable_prev and page.previous and page.previous.path %}
+        <span class="ex-jump-prev" style="display: block;">上一篇：<a href="{{ page.previous.path|resolveFile }}{{ page.previous.anchor }}">{{ page.previous.title }}</a></span>
+        {% endif %}
+        {% if not page.disable_next and page.next and page.next.path %}
+        <span class="ex-jump-next">下一篇：<a href="{{ page.next.path|resolveFile }}{{ page.next.anchor }}">{{ page.next.title }}</a></span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block book_navigation %}{% endblock %}

@@ -1,0 +1,51 @@
+{
+  "/user": {
+    post: {
+      x-cors: true,
+      tags: [
+        "User"
+      ],
+      description: "",
+      operationId: "createUser",
+      parameters: [
+        {
+          name: "user",
+          description: "",
+          in: "body",
+          required: true,
+          schema: {
+            $ref: "#/definitions/User"
+          }
+        }
+      ],
+      responses: {
+        "201": {
+          description: "Success",
+          schema: {
+            $ref: "#/definitions/User"
+          }
+        }
+      }
+    },
+    get: {
+      x-cors: false,
+      tags: [
+        "User"
+      ],
+      description: "",
+      operationId: "all",
+      responses: {
+        "200": {
+          summary: "Success",
+          description: "Success",
+          schema: {
+            type: "array",
+            items: {
+              $ref: "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  }
+}

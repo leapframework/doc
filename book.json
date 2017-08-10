@@ -1,38 +1,43 @@
 {
-    "author": "kael <penghj@bingosoft.net>",
-    "description": "This is leap framework's doc",
-    "extension": null,
-    "generator": "site",
-    "isbn": "null",
-    "links": {
-        "sharing": {
-            "all": null,
-            "facebook": null,
-            "google": null,
-            "twitter": null,
-            "weibo": null
+    "title": "Leap 框架官方开发文档",
+
+    "plugins": [
+        "-sharing",
+        "-fontsettings",
+        "-highlight",
+        "prism",
+        "terminal",
+        "include-codeblock",
+        "cuav-chapters",
+        "ace",
+        "anchor-navigation-ex"
+    ],
+
+    "pluginsConfig": {
+        "terminal": { 
+            "copyButtons": false,
+            "fade": false
+        },
+        "anchor-navigation-ex": {
+            "showLevel": true,
+            "associatedWithSummary": true,
+            "printLog": false,
+            "multipleH1": false,
+            "mode": "float",
+            "float": {
+                "showLevelIcon": false
+            }
         }
     },
-    "pdf": {
-        "fontSize": 12,
-        "footerTemplate": null,
-        "headerTemplate": null,
-        "margin": {
-            "bottom": 36,
-            "left": 62,
-            "right": 62,
-            "top": 36
-        },
-        "pageNumbers": false,
-        "paperSize": "a4"
+
+    "styles": {
+        "website": "styles/website.css"
     },
-    "plugins" : [
-        "splitter",
-        "toggle-chapters",
-        "sectionx"
-    ],
-    "pluginsConfig": {
-    },
-    "title": "leapframework",
-    "variables": {}
+    
+    "variables": {
+        "leap": {
+            "version": "0.6.2b"
+        }
+    } 
+    
 }
